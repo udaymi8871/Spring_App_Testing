@@ -1,23 +1,12 @@
-# .cdmrc - Fermion / codedamn playground defaults for Spring Boot Calculator lab
-playground-view: terminal-editor-browser
-
-# files to open by default in editor (cursor line:col optional)
+# .cdmrc
+# open the main files in editor by default and have one terminal ready
 tabs:
-  - 'pom.xml#1:1'
-  - 'src/main/java/com/example/demo/DemoApplication.java'
-  - 'src/main/java/com/example/demo/CalculatorService.java'
-  - 'src/main/java/com/example/demo/CalculatorController.java'
-  - 'src/test/java/com/example/demo/TestFile.java'
-
-# create 3 terminals on boot (they will execute these commands once)
+  - 'src/main/java/com/example/demo/DemoApplication.java#1:1'
+  - 'src/main/java/com/example/demo/CalculatorService.java#1:1'
+  - 'src/main/java/com/example/demo/CalculatorController.java#1:1'
+  - 'src/test/java/com/example/demo/TestFile.java#1:1'
+playground-view: terminal-editor-browser
 terminals:
-  - 'echo "Building project (skip tests)..." && mvn -DskipTests package'
-  - 'echo "Run tests (TestFile)..." && mvn -Dtest=TestFile test'
-  - 'echo "Start Spring Boot (background)..." && mvn -q spring-boot:run & sleep 1'
-
-# Run Code button: executes lab-run.sh (will run tests and export simple JSON result)
-run-button: bash ./lab-run.sh
-
-# Browser preview link (optional) — show the app if available on port 8080
-# If Fermion exposes the container URL automatically, it will use that; this overrides it.
+  - 'echo "Terminal ready"'
+run-button: bash run_tests.sh
 browser-link: http://localhost:8080
