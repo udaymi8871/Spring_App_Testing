@@ -1,0 +1,24 @@
+# .cdmrc - Fermion / codedamn playground config
+playground-view: terminal-editor-browser
+
+# Tabs to open automatically in editor (good UX for learners)
+tabs:
+  - 'src/main/java/com/example/demo/DemoApplication.java'
+  - 'src/main/java/com/example/demo/CalculatorController.java'
+  - 'src/main/java/com/example/demo/CalculatorService.java'
+  - 'pom.xml'
+  - 'README.md'
+
+# Terminals to auto-run at startup (first terminal will be used by run-button too)
+terminals:
+  - 'echo Starting Spring Boot app... && mvn -DskipTests=true spring-boot:run'
+  # If you prefer to build then run jar instead, comment the line above and uncomment the two lines below:
+  # - 'mvn -DskipTests=true clean package'
+  # - 'java -jar target/*.jar'
+
+# Adds a big "Run Code" button in the UI; it runs this command in the first terminal
+# $$file will be replaced with currently-focused editor file path; not required here but fine to keep.
+run-button: mvn -DskipTests=true spring-boot:run
+
+# Browser preview to show once the server is up (Fermion will open this iframe)
+browser-link: 'http://localhost:8080'
