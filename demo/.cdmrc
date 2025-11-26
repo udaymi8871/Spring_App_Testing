@@ -1,7 +1,7 @@
-# .cdmrc - Fermion / codedamn playground config
+# .cdmrc - Fermion / codedamn config for CalculatorSpring
 playground-view: terminal-editor-browser
 
-# Tabs to open automatically in editor (good UX for learners)
+# Files to open by default in the editor (adjust paths if your files differ)
 tabs:
   - 'src/main/java/com/example/demo/DemoApplication.java'
   - 'src/main/java/com/example/demo/CalculatorController.java'
@@ -9,16 +9,15 @@ tabs:
   - 'pom.xml'
   - 'README.md'
 
-# Terminals to auto-run at startup (first terminal will be used by run-button too)
+# Terminals: first terminal will be used by the Run button.
+# We start the Spring Boot app using mvn. Use -DskipTests to speed it up.
+# 'bash -lc' lets us use shell features and keep the process in foreground (so logs show).
 terminals:
-  - 'echo Starting Spring Boot app... && mvn -DskipTests=true spring-boot:run'
-  # If you prefer to build then run jar instead, comment the line above and uncomment the two lines below:
-  # - 'mvn -DskipTests=true clean package'
-  # - 'java -jar target/*.jar'
+  - "bash -lc 'mvn -DskipTests=true spring-boot:run'"
 
-# Adds a big "Run Code" button in the UI; it runs this command in the first terminal
-# $$file will be replaced with currently-focused editor file path; not required here but fine to keep.
-run-button: mvn -DskipTests=true spring-boot:run
+# Run button: will execute this in the FIRST terminal (it sends Ctrl+C first to stop previous run)
+run-button: bash -lc 'mvn -DskipTests=true spring-boot:run'
 
-# Browser preview to show once the server is up (Fermion will open this iframe)
-browser-link: 'http://localhost:8080'
+# Browser preview: show the calculator add endpoint by default.
+# NOTE: if the iframe returns 404 or is blocked by X-Frame-Options, open link in a new tab.
+browser-link: 'http://localhost:8080/api/calculator/add?a=1&b=2'
