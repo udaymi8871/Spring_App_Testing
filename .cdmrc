@@ -1,3 +1,3 @@
 tabs: ["demo/src/main/java/com/example/demo/DemoApplication.java"]
-run-button:  mvn spring-boot:run
-terminals: ["mvn spring-boot:run"]
+run-button:  cd demo && mvn spring-boot:run
+terminals: ["cd demo && mvn spring-boot:run"]
