@@ -1,12 +1,9 @@
-# .cdmrc
-# open the main files in editor by default and have one terminal ready
 tabs:
-  - 'src/main/java/com/example/demo/DemoApplication.java#1:1'
-  - 'src/main/java/com/example/demo/CalculatorService.java#1:1'
-  - 'src/main/java/com/example/demo/CalculatorController.java#1:1'
-  - 'src/test/java/com/example/demo/TestFile.java#1:1'
-playground-view: terminal-editor-browser
-terminals:
-  - 'echo "Terminal ready"'
-run-button: bash run_tests.sh
-browser-link: http://localhost:8080
+  - 'Calculator.java'
+  - 'Main.java'
+  - 'README.md'
+
+commands:
+  run: |
+    javac *.java
+    java Main
