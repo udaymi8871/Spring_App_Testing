@@ -1,5 +1,5 @@
 tabs: ["demo/src/main/java/com/example/demo/DemoApplication.java"]
 run-button:  cd demo && mvn spring-boot:run
 terminals: ["cd demo && mvn spring-boot:run"]
-browser-link: http://localhost:1337/swagger-ui.html
+browser-link: /swagger-ui.html
 playground-view: terminal-editor-browser
